@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LanguageCoursesDataSetForCustomScripting" targetNamespace="http://tempuri.org/LanguageCoursesDataSetForCustomScripting.xsd" xmlns:mstns="http://tempuri.org/LanguageCoursesDataSetForCustomScripting.xsd" xmlns="http://tempuri.org/LanguageCoursesDataSetForCustomScripting.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LanguageCoursesConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LanguageCoursesConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DBCourseProject.Properties.Settings.GlobalReference.Default.LanguageCoursesConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CityTableAdapter" GeneratorDataComponentClassName="CityTableAdapter" Name="City" UserDataComponentName="CityTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   City.idCity AS Row, City.[City Name], C.[Country Name], L.Language, City.[Local Percent of Knowledge of Second Lang], C.[Overall Percent of Knowledge of Second Lang]
+FROM     City AS City LEFT OUTER JOIN
+             Country AS C ON C.idCountry = City.idCountry LEFT OUTER JOIN
+             Language AS L ON L.idLang = C.idNativeLang</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="City Name" DataSetColumn="City Name" />
+              <Mapping SourceColumn="Local Percent of Knowledge of Second Lang" DataSetColumn="Local Percent of Knowledge of Second Lang" />
+              <Mapping SourceColumn="Row" DataSetColumn="Row" />
+              <Mapping SourceColumn="Country Name" DataSetColumn="Country Name" />
+              <Mapping SourceColumn="Language" DataSetColumn="Language" />
+              <Mapping SourceColumn="Overall Percent of Knowledge of Second Lang" DataSetColumn="Overall Percent of Knowledge of Second Lang" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CountryTableAdapter" GeneratorDataComponentClassName="CountryTableAdapter" Name="Country" UserDataComponentName="CountryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectName="LanguageCourses.dbo.Country" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Country] WHERE (([idCountry] = @Original_idCountry) AND ([Country Name] = @Original_Country_Name) AND ([idNativeLang] = @Original_idNativeLang) AND ((@IsNull_City_Quantity = 1 AND [City Quantity] IS NULL) OR ([City Quantity] = @Original_City_Quantity)) AND ((@IsNull_Overall_Percent_of_Knowledge_of_Second_Lang = 1 AND [Overall Percent of Knowledge of Second Lang] IS NULL) OR ([Overall Percent of Knowledge of Second Lang] = @Original_Overall_Percent_of_Knowledge_of_Second_Lang)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idCountry" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCountry" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Country_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Country Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idNativeLang" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idNativeLang" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_City_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="City Quantity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_City_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="City Quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Overall_Percent_of_Knowledge_of_Second_Lang" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Overall Percent of Knowledge of Second Lang" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Overall_Percent_of_Knowledge_of_Second_Lang" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Overall Percent of Knowledge of Second Lang" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Country] ([idCountry], [Country Name], [idNativeLang], [City Quantity], [Overall Percent of Knowledge of Second Lang]) VALUES (@idCountry, @Country_Name, @idNativeLang, @City_Quantity, @Overall_Percent_of_Knowledge_of_Second_Lang);
+SELECT idCountry, [Country Name], idNativeLang, [City Quantity], [Overall Percent of Knowledge of Second Lang] FROM Country WHERE (idCountry = @idCountry)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idCountry" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCountry" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Country_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Country Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idNativeLang" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idNativeLang" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@City_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="City Quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Overall_Percent_of_Knowledge_of_Second_Lang" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Overall Percent of Knowledge of Second Lang" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idCountry, [Country Name], idNativeLang, [City Quantity], [Overall Percent of Knowledge of Second Lang] FROM dbo.Country</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Country] SET [idCountry] = @idCountry, [Country Name] = @Country_Name, [idNativeLang] = @idNativeLang, [City Quantity] = @City_Quantity, [Overall Percent of Knowledge of Second Lang] = @Overall_Percent_of_Knowledge_of_Second_Lang WHERE (([idCountry] = @Original_idCountry) AND ([Country Name] = @Original_Country_Name) AND ([idNativeLang] = @Original_idNativeLang) AND ((@IsNull_City_Quantity = 1 AND [City Quantity] IS NULL) OR ([City Quantity] = @Original_City_Quantity)) AND ((@IsNull_Overall_Percent_of_Knowledge_of_Second_Lang = 1 AND [Overall Percent of Knowledge of Second Lang] IS NULL) OR ([Overall Percent of Knowledge of Second Lang] = @Original_Overall_Percent_of_Knowledge_of_Second_Lang)));
+SELECT idCountry, [Country Name], idNativeLang, [City Quantity], [Overall Percent of Knowledge of Second Lang] FROM Country WHERE (idCountry = @idCountry)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idCountry" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCountry" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Country_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Country Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idNativeLang" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idNativeLang" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@City_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="City Quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Overall_Percent_of_Knowledge_of_Second_Lang" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Overall Percent of Knowledge of Second Lang" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idCountry" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCountry" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Country_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Country Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idNativeLang" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idNativeLang" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_City_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="City Quantity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_City_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="City Quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Overall_Percent_of_Knowledge_of_Second_Lang" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Overall Percent of Knowledge of Second Lang" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Overall_Percent_of_Knowledge_of_Second_Lang" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Overall Percent of Knowledge of Second Lang" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idCountry" DataSetColumn="idCountry" />
+              <Mapping SourceColumn="Country Name" DataSetColumn="Country Name" />
+              <Mapping SourceColumn="idNativeLang" DataSetColumn="idNativeLang" />
+              <Mapping SourceColumn="City Quantity" DataSetColumn="City Quantity" />
+              <Mapping SourceColumn="Overall Percent of Knowledge of Second Lang" DataSetColumn="Overall Percent of Knowledge of Second Lang" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CourseTableAdapter" GeneratorDataComponentClassName="CourseTableAdapter" Name="Course" UserDataComponentName="CourseTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   C.idCourse AS Row, L.Language, G.[Group Name], T.[Last Name] + ' ' + T.Name + ' ' + T.[Middle Name] AS Teacher, C.Audience, C.Time, C.[Course Type]
+FROM     Course AS C LEFT OUTER JOIN
+             Language AS L ON L.idLang = C.idLang LEFT OUTER JOIN
+             [Group] AS G ON G.idGroup = C.idGroup LEFT OUTER JOIN
+             Teacher AS T ON T.idTeacher = C.idTeacher</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Audience" DataSetColumn="Audience" />
+              <Mapping SourceColumn="Time" DataSetColumn="Time" />
+              <Mapping SourceColumn="Course Type" DataSetColumn="Course Type" />
+              <Mapping SourceColumn="Row" DataSetColumn="Row" />
+              <Mapping SourceColumn="Language" DataSetColumn="Language" />
+              <Mapping SourceColumn="Group Name" DataSetColumn="Group Name" />
+              <Mapping SourceColumn="Teacher" DataSetColumn="Teacher" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DepartmentTableAdapter" GeneratorDataComponentClassName="DepartmentTableAdapter" Name="Department" UserDataComponentName="DepartmentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectName="LanguageCourses.dbo.Department" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Department] WHERE (([idDepartment] = @Original_idDepartment) AND ((@IsNull_Department_Short_Name = 1 AND [Department Short Name] IS NULL) OR ([Department Short Name] = @Original_Department_Short_Name)) AND ([Department full Name] = @Original_Department_full_Name) AND ([idFaculty] = @Original_idFaculty) AND ((@IsNull_Group_Quantity = 1 AND [Group Quantity] IS NULL) OR ([Group Quantity] = @Original_Group_Quantity)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idDepartment" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idDepartment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Department_Short_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Department Short Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Department_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Department Short Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Department_full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Department full Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idFaculty" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idFaculty" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Group_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Group Quantity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Group_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Group Quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Department] ([idDepartment], [Department Short Name], [Department full Name], [idFaculty], [Group Quantity]) VALUES (@idDepartment, @Department_Short_Name, @Department_full_Name, @idFaculty, @Group_Quantity);
+SELECT idDepartment, [Department Short Name], [Department full Name], idFaculty, [Group Quantity] FROM Department WHERE (idDepartment = @idDepartment)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idDepartment" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idDepartment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Department_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Department Short Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Department_full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Department full Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idFaculty" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idFaculty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Group_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Group Quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idDepartment, [Department Short Name], [Department full Name], idFaculty, [Group Quantity] FROM dbo.Department</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Department] SET [idDepartment] = @idDepartment, [Department Short Name] = @Department_Short_Name, [Department full Name] = @Department_full_Name, [idFaculty] = @idFaculty, [Group Quantity] = @Group_Quantity WHERE (([idDepartment] = @Original_idDepartment) AND ((@IsNull_Department_Short_Name = 1 AND [Department Short Name] IS NULL) OR ([Department Short Name] = @Original_Department_Short_Name)) AND ([Department full Name] = @Original_Department_full_Name) AND ([idFaculty] = @Original_idFaculty) AND ((@IsNull_Group_Quantity = 1 AND [Group Quantity] IS NULL) OR ([Group Quantity] = @Original_Group_Quantity)));
+SELECT idDepartment, [Department Short Name], [Department full Name], idFaculty, [Group Quantity] FROM Department WHERE (idDepartment = @idDepartment)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idDepartment" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idDepartment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Department_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Department Short Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Department_full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Department full Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idFaculty" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idFaculty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Group_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Group Quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idDepartment" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idDepartment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Department_Short_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Department Short Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Department_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Department Short Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Department_full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Department full Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idFaculty" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idFaculty" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Group_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Group Quantity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Group_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Group Quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idDepartment" DataSetColumn="idDepartment" />
+              <Mapping SourceColumn="Department Short Name" DataSetColumn="Department Short Name" />
+              <Mapping SourceColumn="Department full Name" DataSetColumn="Department full Name" />
+              <Mapping SourceColumn="idFaculty" DataSetColumn="idFaculty" />
+              <Mapping SourceColumn="Group Quantity" DataSetColumn="Group Quantity" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacultyTableAdapter" GeneratorDataComponentClassName="FacultyTableAdapter" Name="Faculty" UserDataComponentName="FacultyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectName="LanguageCourses.dbo.Faculty" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Faculty] WHERE (([idFaculty] = @Original_idFaculty) AND ((@IsNull_Faculty_Short_Name = 1 AND [Faculty Short Name] IS NULL) OR ([Faculty Short Name] = @Original_Faculty_Short_Name)) AND ([Faculty Full Name] = @Original_Faculty_Full_Name) AND ([idUniversity] = @Original_idUniversity) AND ((@IsNull_Department_Quantity = 1 AND [Department Quantity] IS NULL) OR ([Department Quantity] = @Original_Department_Quantity)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idFaculty" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idFaculty" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Faculty_Short_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Faculty Short Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Faculty_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Faculty Short Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Faculty_Full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Faculty Full Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idUniversity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idUniversity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Department_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Department Quantity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Department_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Department Quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Faculty] ([idFaculty], [Faculty Short Name], [Faculty Full Name], [idUniversity], [Department Quantity]) VALUES (@idFaculty, @Faculty_Short_Name, @Faculty_Full_Name, @idUniversity, @Department_Quantity);
+SELECT idFaculty, [Faculty Short Name], [Faculty Full Name], idUniversity, [Department Quantity] FROM Faculty WHERE (idFaculty = @idFaculty)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idFaculty" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idFaculty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Faculty_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Faculty Short Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Faculty_Full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Faculty Full Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idUniversity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idUniversity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Department_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Department Quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idFaculty, [Faculty Short Name], [Faculty Full Name], idUniversity, [Department Quantity] FROM dbo.Faculty</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Faculty] SET [idFaculty] = @idFaculty, [Faculty Short Name] = @Faculty_Short_Name, [Faculty Full Name] = @Faculty_Full_Name, [idUniversity] = @idUniversity, [Department Quantity] = @Department_Quantity WHERE (([idFaculty] = @Original_idFaculty) AND ((@IsNull_Faculty_Short_Name = 1 AND [Faculty Short Name] IS NULL) OR ([Faculty Short Name] = @Original_Faculty_Short_Name)) AND ([Faculty Full Name] = @Original_Faculty_Full_Name) AND ([idUniversity] = @Original_idUniversity) AND ((@IsNull_Department_Quantity = 1 AND [Department Quantity] IS NULL) OR ([Department Quantity] = @Original_Department_Quantity)));
+SELECT idFaculty, [Faculty Short Name], [Faculty Full Name], idUniversity, [Department Quantity] FROM Faculty WHERE (idFaculty = @idFaculty)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idFaculty" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idFaculty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Faculty_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Faculty Short Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Faculty_Full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Faculty Full Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idUniversity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idUniversity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Department_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Department Quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idFaculty" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idFaculty" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Faculty_Short_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Faculty Short Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Faculty_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Faculty Short Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Faculty_Full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Faculty Full Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idUniversity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idUniversity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Department_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Department Quantity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Department_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Department Quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idFaculty" DataSetColumn="idFaculty" />
+              <Mapping SourceColumn="Faculty Short Name" DataSetColumn="Faculty Short Name" />
+              <Mapping SourceColumn="Faculty Full Name" DataSetColumn="Faculty Full Name" />
+              <Mapping SourceColumn="idUniversity" DataSetColumn="idUniversity" />
+              <Mapping SourceColumn="Department Quantity" DataSetColumn="Department Quantity" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GroupTableAdapter" GeneratorDataComponentClassName="GroupTableAdapter" Name="Group" UserDataComponentName="GroupTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectName="LanguageCourses.dbo.[Group]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   G.idGroup AS Row, G.[Group Name], G.[Student Quantity], D.[Department Short Name] + ' (' + D.[Department full Name] + ')' AS Department, F.[Faculty Short Name] + ' (' + F.[Faculty Full Name] + ')' AS Faculty, U.[University Short Name] + ' (' + U.[University Full Name] + ')' AS University, 
+             G.[Enrollee Group]
+FROM     [Group] AS G LEFT OUTER JOIN
+             Department AS D ON D.idDepartment = G.idDepartment LEFT OUTER JOIN
+             Faculty AS F ON F.idFaculty = D.idFaculty LEFT OUTER JOIN
+             University AS U ON U.idUniversity = F.idUniversity</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Group Name" DataSetColumn="Group Name" />
+              <Mapping SourceColumn="Student Quantity" DataSetColumn="Student Quantity" />
+              <Mapping SourceColumn="Enrollee Group" DataSetColumn="Enrollee Group" />
+              <Mapping SourceColumn="Row" DataSetColumn="Row" />
+              <Mapping SourceColumn="Department" DataSetColumn="Department" />
+              <Mapping SourceColumn="Faculty" DataSetColumn="Faculty" />
+              <Mapping SourceColumn="University" DataSetColumn="University" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Group - CourseTableAdapter" GeneratorDataComponentClassName="Group___CourseTableAdapter" Name="Group - Course" UserDataComponentName="Group - CourseTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectName="LanguageCourses.dbo.[Group - Course]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Group - Course] WHERE (([id] = @Original_id) AND ([idGroup] = @Original_idGroup) AND ([idCourse] = @Original_idCourse))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_id" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idGroup" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idGroup" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idCourse" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCourse" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Group - Course] ([id], [idGroup], [idCourse]) VALUES (@id, @idGroup, @idCourse);
+SELECT id, idGroup, idCourse FROM [Group - Course] WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@id" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idGroup" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idGroup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idCourse" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCourse" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, idGroup, idCourse FROM dbo.[Group - Course]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Group - Course] SET [id] = @id, [idGroup] = @idGroup, [idCourse] = @idCourse WHERE (([id] = @Original_id) AND ([idGroup] = @Original_idGroup) AND ([idCourse] = @Original_idCourse));
+SELECT id, idGroup, idCourse FROM [Group - Course] WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@id" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idGroup" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idGroup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idCourse" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCourse" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_id" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idGroup" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idGroup" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idCourse" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCourse" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="idGroup" DataSetColumn="idGroup" />
+              <Mapping SourceColumn="idCourse" DataSetColumn="idCourse" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Group - TeacherTableAdapter" GeneratorDataComponentClassName="Group___TeacherTableAdapter" Name="Group - Teacher" UserDataComponentName="Group - TeacherTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectName="LanguageCourses.dbo.[Group - Teacher]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Group - Teacher] WHERE (([id] = @Original_id) AND ([idGroup] = @Original_idGroup) AND ([idTeacher] = @Original_idTeacher))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_id" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idGroup" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idGroup" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idTeacher" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idTeacher" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Group - Teacher] ([id], [idGroup], [idTeacher]) VALUES (@id, @idGroup, @idTeacher);
+SELECT id, idGroup, idTeacher FROM [Group - Teacher] WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@id" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idGroup" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idGroup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idTeacher" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idTeacher" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, idGroup, idTeacher FROM dbo.[Group - Teacher]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Group - Teacher] SET [id] = @id, [idGroup] = @idGroup, [idTeacher] = @idTeacher WHERE (([id] = @Original_id) AND ([idGroup] = @Original_idGroup) AND ([idTeacher] = @Original_idTeacher));
+SELECT id, idGroup, idTeacher FROM [Group - Teacher] WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@id" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idGroup" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idGroup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idTeacher" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idTeacher" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_id" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idGroup" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idGroup" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idTeacher" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idTeacher" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="idGroup" DataSetColumn="idGroup" />
+              <Mapping SourceColumn="idTeacher" DataSetColumn="idTeacher" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LanguageTableAdapter" GeneratorDataComponentClassName="LanguageTableAdapter" Name="Language" UserDataComponentName="LanguageTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectName="LanguageCourses.dbo.Language" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Language] WHERE (([idLang] = @Original_idLang) AND ([Language] = @Original_Language) AND ((@IsNull_Language_Family = 1 AND [Language Family] IS NULL) OR ([Language Family] = @Original_Language_Family)) AND ((@IsNull_Prevalence = 1 AND [Prevalence] IS NULL) OR ([Prevalence] = @Original_Prevalence)) AND ((@IsNull_Language_Writing_Family = 1 AND [Language Writing Family] IS NULL) OR ([Language Writing Family] = @Original_Language_Writing_Family)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idLang" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idLang" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Language" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Language_Family" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Language Family" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Language_Family" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language Family" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Prevalence" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Prevalence" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@Original_Prevalence" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="Prevalence" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Language_Writing_Family" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Language Writing Family" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Language_Writing_Family" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language Writing Family" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Language] ([idLang], [Language], [Language Family], [Prevalence], [Language Writing Family]) VALUES (@idLang, @Language, @Language_Family, @Prevalence, @Language_Writing_Family);
+SELECT idLang, Language, [Language Family], Prevalence, [Language Writing Family] FROM Language WHERE (idLang = @idLang)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idLang" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idLang" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Language" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Language_Family" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language Family" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@Prevalence" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="Prevalence" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Language_Writing_Family" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language Writing Family" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idLang, Language, [Language Family], Prevalence, [Language Writing Family] FROM dbo.Language</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Language] SET [idLang] = @idLang, [Language] = @Language, [Language Family] = @Language_Family, [Prevalence] = @Prevalence, [Language Writing Family] = @Language_Writing_Family WHERE (([idLang] = @Original_idLang) AND ([Language] = @Original_Language) AND ((@IsNull_Language_Family = 1 AND [Language Family] IS NULL) OR ([Language Family] = @Original_Language_Family)) AND ((@IsNull_Prevalence = 1 AND [Prevalence] IS NULL) OR ([Prevalence] = @Original_Prevalence)) AND ((@IsNull_Language_Writing_Family = 1 AND [Language Writing Family] IS NULL) OR ([Language Writing Family] = @Original_Language_Writing_Family)));
+SELECT idLang, Language, [Language Family], Prevalence, [Language Writing Family] FROM Language WHERE (idLang = @idLang)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idLang" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idLang" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Language" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Language_Family" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language Family" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@Prevalence" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="Prevalence" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Language_Writing_Family" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language Writing Family" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idLang" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idLang" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Language" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Language_Family" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Language Family" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Language_Family" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language Family" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Prevalence" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Prevalence" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@Original_Prevalence" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="Prevalence" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Language_Writing_Family" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Language Writing Family" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_Language_Writing_Family" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Language Writing Family" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idLang" DataSetColumn="idLang" />
+              <Mapping SourceColumn="Language" DataSetColumn="Language" />
+              <Mapping SourceColumn="Language Family" DataSetColumn="Language Family" />
+              <Mapping SourceColumn="Prevalence" DataSetColumn="Prevalence" />
+              <Mapping SourceColumn="Language Writing Family" DataSetColumn="Language Writing Family" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StudentTableAdapter" GeneratorDataComponentClassName="StudentTableAdapter" Name="Student" UserDataComponentName="StudentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   S.idStudent AS Row, S.[Last Name], S.Name, S.[Middle Name], G.[Group Name], C.[Country Name], S.isEnrollee
+FROM     Student AS S LEFT OUTER JOIN
+             [Group] AS G ON G.idGroup = S.idGroup LEFT OUTER JOIN
+             Country AS C ON C.idCountry = S.idCountry</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Last Name" DataSetColumn="Last Name" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Middle Name" DataSetColumn="Middle Name" />
+              <Mapping SourceColumn="isEnrollee" DataSetColumn="isEnrollee" />
+              <Mapping SourceColumn="Group Name" DataSetColumn="Group Name" />
+              <Mapping SourceColumn="Row" DataSetColumn="Row" />
+              <Mapping SourceColumn="Country Name" DataSetColumn="Country Name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TeacherTableAdapter" GeneratorDataComponentClassName="TeacherTableAdapter" Name="Teacher" UserDataComponentName="TeacherTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   T.idTeacher AS Row, T.[Last Name], T.Name, T.[Middle Name], L.Language, G.[Group Name], C.[Country Name]
+FROM     Teacher AS T LEFT OUTER JOIN
+             Language AS L ON L.idLang = T.idLang LEFT OUTER JOIN
+             [Group] AS G ON G.idGroup = T.idGroup LEFT OUTER JOIN
+             Country AS C ON C.idCountry = T.idCountry</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Last Name" DataSetColumn="Last Name" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Middle Name" DataSetColumn="Middle Name" />
+              <Mapping SourceColumn="Row" DataSetColumn="Row" />
+              <Mapping SourceColumn="Language" DataSetColumn="Language" />
+              <Mapping SourceColumn="Group Name" DataSetColumn="Group Name" />
+              <Mapping SourceColumn="Country Name" DataSetColumn="Country Name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UniversityTableAdapter" GeneratorDataComponentClassName="UniversityTableAdapter" Name="University" UserDataComponentName="UniversityTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LanguageCoursesConnectionString (Settings)" DbObjectName="LanguageCourses.dbo.University" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[University] WHERE (([idUniversity] = @Original_idUniversity) AND ((@IsNull_University_Short_Name = 1 AND [University Short Name] IS NULL) OR ([University Short Name] = @Original_University_Short_Name)) AND ([idCity] = @Original_idCity) AND ((@IsNull_Faculty_Quantity = 1 AND [Faculty Quantity] IS NULL) OR ([Faculty Quantity] = @Original_Faculty_Quantity)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idUniversity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idUniversity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_University_Short_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="University Short Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_University_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="University Short Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idCity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Faculty_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Faculty Quantity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Faculty_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Faculty Quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[University] ([idUniversity], [University Short Name], [University Full Name], [idCity], [Faculty Quantity]) VALUES (@idUniversity, @University_Short_Name, @University_Full_Name, @idCity, @Faculty_Quantity);
+SELECT idUniversity, [University Short Name], [University Full Name], idCity, [Faculty Quantity] FROM University WHERE (idUniversity = @idUniversity)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idUniversity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idUniversity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@University_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="University Short Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@University_Full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="University Full Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idCity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Faculty_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Faculty Quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idUniversity, [University Short Name], [University Full Name], idCity, [Faculty Quantity] FROM dbo.University</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[University] SET [idUniversity] = @idUniversity, [University Short Name] = @University_Short_Name, [University Full Name] = @University_Full_Name, [idCity] = @idCity, [Faculty Quantity] = @Faculty_Quantity WHERE (([idUniversity] = @Original_idUniversity) AND ((@IsNull_University_Short_Name = 1 AND [University Short Name] IS NULL) OR ([University Short Name] = @Original_University_Short_Name)) AND ([idCity] = @Original_idCity) AND ((@IsNull_Faculty_Quantity = 1 AND [Faculty Quantity] IS NULL) OR ([Faculty Quantity] = @Original_Faculty_Quantity)));
+SELECT idUniversity, [University Short Name], [University Full Name], idCity, [Faculty Quantity] FROM University WHERE (idUniversity = @idUniversity)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idUniversity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idUniversity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@University_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="University Short Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@University_Full_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="University Full Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@idCity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Faculty_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Faculty Quantity" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idUniversity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idUniversity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_University_Short_Name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="University Short Name" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_University_Short_Name" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="University Short Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_idCity" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="idCity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Faculty_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Faculty Quantity" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Faculty_Quantity" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Faculty Quantity" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idUniversity" DataSetColumn="idUniversity" />
+              <Mapping SourceColumn="University Short Name" DataSetColumn="University Short Name" />
+              <Mapping SourceColumn="University Full Name" DataSetColumn="University Full Name" />
+              <Mapping SourceColumn="idCity" DataSetColumn="idCity" />
+              <Mapping SourceColumn="Faculty Quantity" DataSetColumn="Faculty Quantity" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LanguageCoursesDataSetForCustomScripting" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LanguageCoursesDataSetForCustomScripting" msprop:Generator_UserDSName="LanguageCoursesDataSetForCustomScripting">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="City" msprop:Generator_TableClassName="CityDataTable" msprop:Generator_TableVarName="tableCity" msprop:Generator_RowChangedName="CityRowChanged" msprop:Generator_TablePropName="City" msprop:Generator_RowDeletingName="CityRowDeleting" msprop:Generator_RowChangingName="CityRowChanging" msprop:Generator_RowEvHandlerName="CityRowChangeEventHandler" msprop:Generator_RowDeletedName="CityRowDeleted" msprop:Generator_RowClassName="CityRow" msprop:Generator_UserTableName="City" msprop:Generator_RowEvArgName="CityRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="City_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnCity_Name" msprop:Generator_ColumnPropNameInRow="City_Name" msprop:Generator_ColumnPropNameInTable="City_NameColumn" msprop:Generator_UserColumnName="City Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Local_x0020_Percent_x0020_of_x0020_Knowledge_x0020_of_x0020_Second_x0020_Lang" msprop:Generator_ColumnVarNameInTable="columnLocal_Percent_of_Knowledge_of_Second_Lang" msprop:Generator_ColumnPropNameInRow="Local_Percent_of_Knowledge_of_Second_Lang" msprop:Generator_ColumnPropNameInTable="Local_Percent_of_Knowledge_of_Second_LangColumn" msprop:Generator_UserColumnName="Local Percent of Knowledge of Second Lang" type="xs:int" minOccurs="0" />
+              <xs:element name="Row" msprop:Generator_ColumnVarNameInTable="columnRow" msprop:Generator_ColumnPropNameInRow="Row" msprop:Generator_ColumnPropNameInTable="RowColumn" msprop:Generator_UserColumnName="Row" type="xs:decimal" />
+              <xs:element name="Country_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnCountry_Name" msprop:Generator_ColumnPropNameInRow="Country_Name" msprop:Generator_ColumnPropNameInTable="Country_NameColumn" msprop:Generator_UserColumnName="Country Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Language" msprop:Generator_ColumnVarNameInTable="columnLanguage" msprop:Generator_ColumnPropNameInRow="Language" msprop:Generator_ColumnPropNameInTable="LanguageColumn" msprop:Generator_UserColumnName="Language" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Overall_x0020_Percent_x0020_of_x0020_Knowledge_x0020_of_x0020_Second_x0020_Lang" msprop:Generator_ColumnVarNameInTable="columnOverall_Percent_of_Knowledge_of_Second_Lang" msprop:Generator_ColumnPropNameInRow="Overall_Percent_of_Knowledge_of_Second_Lang" msprop:Generator_ColumnPropNameInTable="Overall_Percent_of_Knowledge_of_Second_LangColumn" msprop:Generator_UserColumnName="Overall Percent of Knowledge of Second Lang" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Country" msprop:Generator_TableClassName="CountryDataTable" msprop:Generator_TableVarName="tableCountry" msprop:Generator_RowChangedName="CountryRowChanged" msprop:Generator_TablePropName="Country" msprop:Generator_RowDeletingName="CountryRowDeleting" msprop:Generator_RowChangingName="CountryRowChanging" msprop:Generator_RowEvHandlerName="CountryRowChangeEventHandler" msprop:Generator_RowDeletedName="CountryRowDeleted" msprop:Generator_RowClassName="CountryRow" msprop:Generator_UserTableName="Country" msprop:Generator_RowEvArgName="CountryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idCountry" msprop:Generator_ColumnVarNameInTable="columnidCountry" msprop:Generator_ColumnPropNameInRow="idCountry" msprop:Generator_ColumnPropNameInTable="idCountryColumn" msprop:Generator_UserColumnName="idCountry" type="xs:decimal" />
+              <xs:element name="Country_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnCountry_Name" msprop:Generator_ColumnPropNameInRow="Country_Name" msprop:Generator_ColumnPropNameInTable="Country_NameColumn" msprop:Generator_UserColumnName="Country Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idNativeLang" msprop:Generator_ColumnVarNameInTable="columnidNativeLang" msprop:Generator_ColumnPropNameInRow="idNativeLang" msprop:Generator_ColumnPropNameInTable="idNativeLangColumn" msprop:Generator_UserColumnName="idNativeLang" type="xs:decimal" />
+              <xs:element name="City_x0020_Quantity" msprop:Generator_ColumnVarNameInTable="columnCity_Quantity" msprop:Generator_ColumnPropNameInRow="City_Quantity" msprop:Generator_ColumnPropNameInTable="City_QuantityColumn" msprop:Generator_UserColumnName="City Quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="Overall_x0020_Percent_x0020_of_x0020_Knowledge_x0020_of_x0020_Second_x0020_Lang" msprop:Generator_ColumnVarNameInTable="columnOverall_Percent_of_Knowledge_of_Second_Lang" msprop:Generator_ColumnPropNameInRow="Overall_Percent_of_Knowledge_of_Second_Lang" msprop:Generator_ColumnPropNameInTable="Overall_Percent_of_Knowledge_of_Second_LangColumn" msprop:Generator_UserColumnName="Overall Percent of Knowledge of Second Lang" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Course" msprop:Generator_TableClassName="CourseDataTable" msprop:Generator_TableVarName="tableCourse" msprop:Generator_RowChangedName="CourseRowChanged" msprop:Generator_TablePropName="Course" msprop:Generator_RowDeletingName="CourseRowDeleting" msprop:Generator_RowChangingName="CourseRowChanging" msprop:Generator_RowEvHandlerName="CourseRowChangeEventHandler" msprop:Generator_RowDeletedName="CourseRowDeleted" msprop:Generator_RowClassName="CourseRow" msprop:Generator_UserTableName="Course" msprop:Generator_RowEvArgName="CourseRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Audience" msprop:Generator_ColumnVarNameInTable="columnAudience" msprop:Generator_ColumnPropNameInRow="Audience" msprop:Generator_ColumnPropNameInTable="AudienceColumn" msprop:Generator_UserColumnName="Audience">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:dateTime" />
+              <xs:element name="Course_x0020_Type" msprop:Generator_ColumnVarNameInTable="columnCourse_Type" msprop:Generator_ColumnPropNameInRow="Course_Type" msprop:Generator_ColumnPropNameInTable="Course_TypeColumn" msprop:Generator_UserColumnName="Course Type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Row" msprop:Generator_ColumnVarNameInTable="columnRow" msprop:Generator_ColumnPropNameInRow="Row" msprop:Generator_ColumnPropNameInTable="RowColumn" msprop:Generator_UserColumnName="Row" type="xs:decimal" />
+              <xs:element name="Language" msprop:Generator_ColumnVarNameInTable="columnLanguage" msprop:Generator_ColumnPropNameInRow="Language" msprop:Generator_ColumnPropNameInTable="LanguageColumn" msprop:Generator_UserColumnName="Language" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Group_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnGroup_Name" msprop:Generator_ColumnPropNameInRow="Group_Name" msprop:Generator_ColumnPropNameInTable="Group_NameColumn" msprop:Generator_UserColumnName="Group Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Teacher" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTeacher" msprop:Generator_ColumnPropNameInRow="Teacher" msprop:Generator_ColumnPropNameInTable="TeacherColumn" msprop:Generator_UserColumnName="Teacher" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="62" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Department" msprop:Generator_TableClassName="DepartmentDataTable" msprop:Generator_TableVarName="tableDepartment" msprop:Generator_RowChangedName="DepartmentRowChanged" msprop:Generator_TablePropName="Department" msprop:Generator_RowDeletingName="DepartmentRowDeleting" msprop:Generator_RowChangingName="DepartmentRowChanging" msprop:Generator_RowEvHandlerName="DepartmentRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentRowDeleted" msprop:Generator_RowClassName="DepartmentRow" msprop:Generator_UserTableName="Department" msprop:Generator_RowEvArgName="DepartmentRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idDepartment" msprop:Generator_ColumnVarNameInTable="columnidDepartment" msprop:Generator_ColumnPropNameInRow="idDepartment" msprop:Generator_ColumnPropNameInTable="idDepartmentColumn" msprop:Generator_UserColumnName="idDepartment" type="xs:decimal" />
+              <xs:element name="Department_x0020_Short_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnDepartment_Short_Name" msprop:Generator_ColumnPropNameInRow="Department_Short_Name" msprop:Generator_ColumnPropNameInTable="Department_Short_NameColumn" msprop:Generator_UserColumnName="Department Short Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Department_x0020_full_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnDepartment_full_Name" msprop:Generator_ColumnPropNameInRow="Department_full_Name" msprop:Generator_ColumnPropNameInTable="Department_full_NameColumn" msprop:Generator_UserColumnName="Department full Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idFaculty" msprop:Generator_ColumnVarNameInTable="columnidFaculty" msprop:Generator_ColumnPropNameInRow="idFaculty" msprop:Generator_ColumnPropNameInTable="idFacultyColumn" msprop:Generator_UserColumnName="idFaculty" type="xs:decimal" />
+              <xs:element name="Group_x0020_Quantity" msprop:Generator_ColumnVarNameInTable="columnGroup_Quantity" msprop:Generator_ColumnPropNameInRow="Group_Quantity" msprop:Generator_ColumnPropNameInTable="Group_QuantityColumn" msprop:Generator_UserColumnName="Group Quantity" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Faculty" msprop:Generator_TableClassName="FacultyDataTable" msprop:Generator_TableVarName="tableFaculty" msprop:Generator_RowChangedName="FacultyRowChanged" msprop:Generator_TablePropName="Faculty" msprop:Generator_RowDeletingName="FacultyRowDeleting" msprop:Generator_RowChangingName="FacultyRowChanging" msprop:Generator_RowEvHandlerName="FacultyRowChangeEventHandler" msprop:Generator_RowDeletedName="FacultyRowDeleted" msprop:Generator_RowClassName="FacultyRow" msprop:Generator_UserTableName="Faculty" msprop:Generator_RowEvArgName="FacultyRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idFaculty" msprop:Generator_ColumnVarNameInTable="columnidFaculty" msprop:Generator_ColumnPropNameInRow="idFaculty" msprop:Generator_ColumnPropNameInTable="idFacultyColumn" msprop:Generator_UserColumnName="idFaculty" type="xs:decimal" />
+              <xs:element name="Faculty_x0020_Short_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnFaculty_Short_Name" msprop:Generator_ColumnPropNameInRow="Faculty_Short_Name" msprop:Generator_ColumnPropNameInTable="Faculty_Short_NameColumn" msprop:Generator_UserColumnName="Faculty Short Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Faculty_x0020_Full_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnFaculty_Full_Name" msprop:Generator_ColumnPropNameInRow="Faculty_Full_Name" msprop:Generator_ColumnPropNameInTable="Faculty_Full_NameColumn" msprop:Generator_UserColumnName="Faculty Full Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idUniversity" msprop:Generator_ColumnVarNameInTable="columnidUniversity" msprop:Generator_ColumnPropNameInRow="idUniversity" msprop:Generator_ColumnPropNameInTable="idUniversityColumn" msprop:Generator_UserColumnName="idUniversity" type="xs:decimal" />
+              <xs:element name="Department_x0020_Quantity" msprop:Generator_ColumnVarNameInTable="columnDepartment_Quantity" msprop:Generator_ColumnPropNameInRow="Department_Quantity" msprop:Generator_ColumnPropNameInTable="Department_QuantityColumn" msprop:Generator_UserColumnName="Department Quantity" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Group" msprop:Generator_TableClassName="GroupDataTable" msprop:Generator_TableVarName="tableGroup" msprop:Generator_RowChangedName="GroupRowChanged" msprop:Generator_TablePropName="Group" msprop:Generator_RowDeletingName="GroupRowDeleting" msprop:Generator_RowChangingName="GroupRowChanging" msprop:Generator_RowEvHandlerName="GroupRowChangeEventHandler" msprop:Generator_RowDeletedName="GroupRowDeleted" msprop:Generator_RowClassName="GroupRow" msprop:Generator_UserTableName="Group" msprop:Generator_RowEvArgName="GroupRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Group_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnGroup_Name" msprop:Generator_ColumnPropNameInRow="Group_Name" msprop:Generator_ColumnPropNameInTable="Group_NameColumn" msprop:Generator_UserColumnName="Group Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Student_x0020_Quantity" msprop:Generator_ColumnVarNameInTable="columnStudent_Quantity" msprop:Generator_ColumnPropNameInRow="Student_Quantity" msprop:Generator_ColumnPropNameInTable="Student_QuantityColumn" msprop:Generator_UserColumnName="Student Quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="Enrollee_x0020_Group" msprop:Generator_ColumnVarNameInTable="columnEnrollee_Group" msprop:Generator_ColumnPropNameInRow="Enrollee_Group" msprop:Generator_ColumnPropNameInTable="Enrollee_GroupColumn" msprop:Generator_UserColumnName="Enrollee Group" type="xs:boolean" />
+              <xs:element name="Row" msprop:Generator_ColumnVarNameInTable="columnRow" msprop:Generator_ColumnPropNameInRow="Row" msprop:Generator_ColumnPropNameInTable="RowColumn" msprop:Generator_UserColumnName="Row" type="xs:decimal" />
+              <xs:element name="Department" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepartment" msprop:Generator_ColumnPropNameInRow="Department" msprop:Generator_ColumnPropNameInTable="DepartmentColumn" msprop:Generator_UserColumnName="Department" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Faculty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFaculty" msprop:Generator_ColumnPropNameInRow="Faculty" msprop:Generator_ColumnPropNameInTable="FacultyColumn" msprop:Generator_UserColumnName="Faculty" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="University" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUniversity" msprop:Generator_ColumnPropNameInRow="University" msprop:Generator_ColumnPropNameInTable="UniversityColumn" msprop:Generator_UserColumnName="University" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Group_x0020_-_x0020_Course" msprop:Generator_TableClassName="_Group___CourseDataTable" msprop:Generator_TableVarName="_tableGroup___Course" msprop:Generator_RowChangedName="_Group___CourseRowChanged" msprop:Generator_TablePropName="_Group___Course" msprop:Generator_RowDeletingName="_Group___CourseRowDeleting" msprop:Generator_RowChangingName="_Group___CourseRowChanging" msprop:Generator_RowEvHandlerName="_Group___CourseRowChangeEventHandler" msprop:Generator_RowDeletedName="_Group___CourseRowDeleted" msprop:Generator_RowClassName="_Group___CourseRow" msprop:Generator_UserTableName="Group - Course" msprop:Generator_RowEvArgName="_Group___CourseRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:decimal" />
+              <xs:element name="idGroup" msprop:Generator_ColumnVarNameInTable="columnidGroup" msprop:Generator_ColumnPropNameInRow="idGroup" msprop:Generator_ColumnPropNameInTable="idGroupColumn" msprop:Generator_UserColumnName="idGroup" type="xs:decimal" />
+              <xs:element name="idCourse" msprop:Generator_ColumnVarNameInTable="columnidCourse" msprop:Generator_ColumnPropNameInRow="idCourse" msprop:Generator_ColumnPropNameInTable="idCourseColumn" msprop:Generator_UserColumnName="idCourse" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Group_x0020_-_x0020_Teacher" msprop:Generator_TableClassName="_Group___TeacherDataTable" msprop:Generator_TableVarName="_tableGroup___Teacher" msprop:Generator_RowChangedName="_Group___TeacherRowChanged" msprop:Generator_TablePropName="_Group___Teacher" msprop:Generator_RowDeletingName="_Group___TeacherRowDeleting" msprop:Generator_RowChangingName="_Group___TeacherRowChanging" msprop:Generator_RowEvHandlerName="_Group___TeacherRowChangeEventHandler" msprop:Generator_RowDeletedName="_Group___TeacherRowDeleted" msprop:Generator_RowClassName="_Group___TeacherRow" msprop:Generator_UserTableName="Group - Teacher" msprop:Generator_RowEvArgName="_Group___TeacherRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:decimal" />
+              <xs:element name="idGroup" msprop:Generator_ColumnVarNameInTable="columnidGroup" msprop:Generator_ColumnPropNameInRow="idGroup" msprop:Generator_ColumnPropNameInTable="idGroupColumn" msprop:Generator_UserColumnName="idGroup" type="xs:decimal" />
+              <xs:element name="idTeacher" msprop:Generator_ColumnVarNameInTable="columnidTeacher" msprop:Generator_ColumnPropNameInRow="idTeacher" msprop:Generator_ColumnPropNameInTable="idTeacherColumn" msprop:Generator_UserColumnName="idTeacher" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Language" msprop:Generator_TableClassName="LanguageDataTable" msprop:Generator_TableVarName="tableLanguage" msprop:Generator_RowChangedName="LanguageRowChanged" msprop:Generator_TablePropName="Language" msprop:Generator_RowDeletingName="LanguageRowDeleting" msprop:Generator_RowChangingName="LanguageRowChanging" msprop:Generator_RowEvHandlerName="LanguageRowChangeEventHandler" msprop:Generator_RowDeletedName="LanguageRowDeleted" msprop:Generator_RowClassName="LanguageRow" msprop:Generator_UserTableName="Language" msprop:Generator_RowEvArgName="LanguageRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idLang" msprop:Generator_ColumnVarNameInTable="columnidLang" msprop:Generator_ColumnPropNameInRow="idLang" msprop:Generator_ColumnPropNameInTable="idLangColumn" msprop:Generator_UserColumnName="idLang" type="xs:decimal" />
+              <xs:element name="Language" msprop:Generator_ColumnVarNameInTable="columnLanguage" msprop:Generator_ColumnPropNameInRow="Language" msprop:Generator_ColumnPropNameInTable="LanguageColumn" msprop:Generator_UserColumnName="Language">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Language_x0020_Family" msprop:Generator_ColumnVarNameInTable="columnLanguage_Family" msprop:Generator_ColumnPropNameInRow="Language_Family" msprop:Generator_ColumnPropNameInTable="Language_FamilyColumn" msprop:Generator_UserColumnName="Language Family" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Prevalence" msprop:Generator_ColumnVarNameInTable="columnPrevalence" msprop:Generator_ColumnPropNameInRow="Prevalence" msprop:Generator_ColumnPropNameInTable="PrevalenceColumn" msprop:Generator_UserColumnName="Prevalence" type="xs:float" minOccurs="0" />
+              <xs:element name="Language_x0020_Writing_x0020_Family" msprop:Generator_ColumnVarNameInTable="columnLanguage_Writing_Family" msprop:Generator_ColumnPropNameInRow="Language_Writing_Family" msprop:Generator_ColumnPropNameInTable="Language_Writing_FamilyColumn" msprop:Generator_UserColumnName="Language Writing Family" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Student" msprop:Generator_TableClassName="StudentDataTable" msprop:Generator_TableVarName="tableStudent" msprop:Generator_RowChangedName="StudentRowChanged" msprop:Generator_TablePropName="Student" msprop:Generator_RowDeletingName="StudentRowDeleting" msprop:Generator_RowChangingName="StudentRowChanging" msprop:Generator_RowEvHandlerName="StudentRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentRowDeleted" msprop:Generator_RowClassName="StudentRow" msprop:Generator_UserTableName="Student" msprop:Generator_RowEvArgName="StudentRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Last_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnLast_Name" msprop:Generator_ColumnPropNameInRow="Last_Name" msprop:Generator_ColumnPropNameInTable="Last_NameColumn" msprop:Generator_UserColumnName="Last Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Middle_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnMiddle_Name" msprop:Generator_ColumnPropNameInRow="Middle_Name" msprop:Generator_ColumnPropNameInTable="Middle_NameColumn" msprop:Generator_UserColumnName="Middle Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="isEnrollee" msprop:Generator_ColumnVarNameInTable="columnisEnrollee" msprop:Generator_ColumnPropNameInRow="isEnrollee" msprop:Generator_ColumnPropNameInTable="isEnrolleeColumn" msprop:Generator_UserColumnName="isEnrollee" type="xs:boolean" />
+              <xs:element name="Group_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnGroup_Name" msprop:Generator_ColumnPropNameInRow="Group_Name" msprop:Generator_ColumnPropNameInTable="Group_NameColumn" msprop:Generator_UserColumnName="Group Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Row" msprop:Generator_ColumnVarNameInTable="columnRow" msprop:Generator_ColumnPropNameInRow="Row" msprop:Generator_ColumnPropNameInTable="RowColumn" msprop:Generator_UserColumnName="Row" type="xs:decimal" />
+              <xs:element name="Country_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnCountry_Name" msprop:Generator_ColumnPropNameInRow="Country_Name" msprop:Generator_ColumnPropNameInTable="Country_NameColumn" msprop:Generator_UserColumnName="Country Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Teacher" msprop:Generator_TableClassName="TeacherDataTable" msprop:Generator_TableVarName="tableTeacher" msprop:Generator_RowChangedName="TeacherRowChanged" msprop:Generator_TablePropName="Teacher" msprop:Generator_RowDeletingName="TeacherRowDeleting" msprop:Generator_RowChangingName="TeacherRowChanging" msprop:Generator_RowEvHandlerName="TeacherRowChangeEventHandler" msprop:Generator_RowDeletedName="TeacherRowDeleted" msprop:Generator_RowClassName="TeacherRow" msprop:Generator_UserTableName="Teacher" msprop:Generator_RowEvArgName="TeacherRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Last_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnLast_Name" msprop:Generator_ColumnPropNameInRow="Last_Name" msprop:Generator_ColumnPropNameInTable="Last_NameColumn" msprop:Generator_UserColumnName="Last Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Middle_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnMiddle_Name" msprop:Generator_ColumnPropNameInRow="Middle_Name" msprop:Generator_ColumnPropNameInTable="Middle_NameColumn" msprop:Generator_UserColumnName="Middle Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Row" msprop:Generator_ColumnVarNameInTable="columnRow" msprop:Generator_ColumnPropNameInRow="Row" msprop:Generator_ColumnPropNameInTable="RowColumn" msprop:Generator_UserColumnName="Row" type="xs:decimal" />
+              <xs:element name="Language" msprop:Generator_ColumnVarNameInTable="columnLanguage" msprop:Generator_ColumnPropNameInRow="Language" msprop:Generator_ColumnPropNameInTable="LanguageColumn" msprop:Generator_UserColumnName="Language" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Group_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnGroup_Name" msprop:Generator_ColumnPropNameInRow="Group_Name" msprop:Generator_ColumnPropNameInTable="Group_NameColumn" msprop:Generator_UserColumnName="Group Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Country_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnCountry_Name" msprop:Generator_ColumnPropNameInRow="Country_Name" msprop:Generator_ColumnPropNameInTable="Country_NameColumn" msprop:Generator_UserColumnName="Country Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="University" msprop:Generator_TableClassName="UniversityDataTable" msprop:Generator_TableVarName="tableUniversity" msprop:Generator_RowChangedName="UniversityRowChanged" msprop:Generator_TablePropName="University" msprop:Generator_RowDeletingName="UniversityRowDeleting" msprop:Generator_RowChangingName="UniversityRowChanging" msprop:Generator_RowEvHandlerName="UniversityRowChangeEventHandler" msprop:Generator_RowDeletedName="UniversityRowDeleted" msprop:Generator_RowClassName="UniversityRow" msprop:Generator_UserTableName="University" msprop:Generator_RowEvArgName="UniversityRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idUniversity" msprop:Generator_ColumnVarNameInTable="columnidUniversity" msprop:Generator_ColumnPropNameInRow="idUniversity" msprop:Generator_ColumnPropNameInTable="idUniversityColumn" msprop:Generator_UserColumnName="idUniversity" type="xs:decimal" />
+              <xs:element name="University_x0020_Short_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnUniversity_Short_Name" msprop:Generator_ColumnPropNameInRow="University_Short_Name" msprop:Generator_ColumnPropNameInTable="University_Short_NameColumn" msprop:Generator_UserColumnName="University Short Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="University_x0020_Full_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnUniversity_Full_Name" msprop:Generator_ColumnPropNameInRow="University_Full_Name" msprop:Generator_ColumnPropNameInTable="University_Full_NameColumn" msprop:Generator_UserColumnName="University Full Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idCity" msprop:Generator_ColumnVarNameInTable="columnidCity" msprop:Generator_ColumnPropNameInRow="idCity" msprop:Generator_ColumnPropNameInTable="idCityColumn" msprop:Generator_UserColumnName="idCity" type="xs:decimal" />
+              <xs:element name="Faculty_x0020_Quantity" msprop:Generator_ColumnVarNameInTable="columnFaculty_Quantity" msprop:Generator_ColumnPropNameInRow="Faculty_Quantity" msprop:Generator_ColumnPropNameInTable="Faculty_QuantityColumn" msprop:Generator_UserColumnName="Faculty Quantity" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:City" />
+      <xs:field xpath="mstns:Row" />
+    </xs:unique>
+    <xs:unique name="Country_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Country" />
+      <xs:field xpath="mstns:idCountry" />
+    </xs:unique>
+    <xs:unique name="Course_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Course" />
+      <xs:field xpath="mstns:Row" />
+    </xs:unique>
+    <xs:unique name="Department_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Department" />
+      <xs:field xpath="mstns:idDepartment" />
+    </xs:unique>
+    <xs:unique name="Faculty_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Faculty" />
+      <xs:field xpath="mstns:idFaculty" />
+    </xs:unique>
+    <xs:unique name="Group_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Group" />
+      <xs:field xpath="mstns:Row" />
+    </xs:unique>
+    <xs:unique name="Group_x0020_-_x0020_Course_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Group_x0020_-_x0020_Course" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Group_x0020_-_x0020_Teacher_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Group_x0020_-_x0020_Teacher" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Language_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Language" />
+      <xs:field xpath="mstns:idLang" />
+    </xs:unique>
+    <xs:unique name="Student_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Student" />
+      <xs:field xpath="mstns:Row" />
+    </xs:unique>
+    <xs:unique name="Teacher_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Teacher" />
+      <xs:field xpath="mstns:Row" />
+    </xs:unique>
+    <xs:unique name="University_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:University" />
+      <xs:field xpath="mstns:idUniversity" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_Country_Language" msdata:parent="Language" msdata:child="Country" msdata:parentkey="idLang" msdata:childkey="idNativeLang" msprop:Generator_UserChildTable="Country" msprop:Generator_ChildPropName="GetCountryRows" msprop:Generator_UserRelationName="FK_Country_Language" msprop:Generator_ParentPropName="LanguageRow" msprop:Generator_RelationVarName="relationFK_Country_Language" msprop:Generator_UserParentTable="Language" />
+      <msdata:Relationship name="FK_Department_Faculty" msdata:parent="Faculty" msdata:child="Department" msdata:parentkey="idFaculty" msdata:childkey="idFaculty" msprop:Generator_UserChildTable="Department" msprop:Generator_ChildPropName="GetDepartmentRows" msprop:Generator_UserRelationName="FK_Department_Faculty" msprop:Generator_ParentPropName="FacultyRow" msprop:Generator_RelationVarName="relationFK_Department_Faculty" msprop:Generator_UserParentTable="Faculty" />
+      <msdata:Relationship name="FK_Faculty_University" msdata:parent="University" msdata:child="Faculty" msdata:parentkey="idUniversity" msdata:childkey="idUniversity" msprop:Generator_UserChildTable="Faculty" msprop:Generator_ChildPropName="GetFacultyRows" msprop:Generator_UserRelationName="FK_Faculty_University" msprop:Generator_ParentPropName="UniversityRow" msprop:Generator_RelationVarName="relationFK_Faculty_University" msprop:Generator_UserParentTable="University" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
